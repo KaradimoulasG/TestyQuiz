@@ -38,4 +38,10 @@ class QuizViewModel : ViewModel() {
         currentQuestionIndex = 0
         score = 0
     }
+
+    fun finishQuiz() {
+        if (currentQuestionIndex >= questions.size - 1) {
+            isQuizFinished = true
+        }
+    }
 }

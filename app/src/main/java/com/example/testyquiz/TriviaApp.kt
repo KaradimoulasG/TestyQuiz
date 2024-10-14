@@ -27,9 +27,7 @@ fun TriviaApp() {
 
         else -> {
             QuestionScreen(viewModel) {
-                if (viewModel.currentQuestionIndex >= viewModel.questions.size - 1) {
-                    viewModel.isQuizFinished = true
-                }
+                viewModel.finishQuiz()
             }
         }
     }
