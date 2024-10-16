@@ -1,7 +1,7 @@
 package com.example.testyquiz
 
 data class Question(
-    val question: String,
+    val questionTitle: String,
     val options: List<String>,
-    val correctOptionsIndex: Int
+    val correctAnswerIndex: Int
 )

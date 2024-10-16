@@ -13,21 +13,19 @@ fun TriviaApp() {
     when {
         !viewModel.isQuizStarted -> {
             StartScreen {
-                viewModel.isQuizStarted = true
+                viewModel.startQuiz()
             }
         }
 
         viewModel.isQuizFinished -> {
             FinalScreen(viewModel) {
-                viewModel.resetQuiz()
-                viewModel.isQuizFinished = false
-                viewModel.isQuizStarted = false
+                viewModel.restartQuiz()
             }
         }
 
         else -> {
             QuestionScreen(viewModel) {
-                viewModel.finishQuiz()
+                viewModel.onAnswerSelected(it)
             }
         }
     }

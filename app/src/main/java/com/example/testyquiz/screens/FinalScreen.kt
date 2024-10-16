@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.testyquiz.QuizViewModel
 import com.example.testyquiz.components.BaseScreen
@@ -27,7 +26,7 @@ fun FinalScreen(viewModel: QuizViewModel, onRestart: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_TYPE_WATCH, device = Devices.TABLET)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun FinalScreenPreview() {
     BaseScreen {

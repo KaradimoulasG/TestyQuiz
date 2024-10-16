@@ -16,7 +16,7 @@ import com.example.testyquiz.components.StylishButton
 import com.example.testyquiz.components.StylishText
 
 @Composable
-fun QuestionScreen(viewModel: QuizViewModel, onFinish: () -> Unit) {
+fun QuestionScreen(viewModel: QuizViewModel, onAnswerSelected: (Int) -> Unit) {
     val currentQuestion = viewModel.currentQuestion
 
     Column(
@@ -24,18 +24,13 @@ fun QuestionScreen(viewModel: QuizViewModel, onFinish: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        StylishText(text = currentQuestion.question)
+        StylishText(text = currentQuestion.questionTitle)
         Spacer(modifier = Modifier.height(16.dp))
 
         currentQuestion.options.forEachIndexed { index, option ->
             StylishButton(
                 text = option,
-                onClick = {
-                    if (index == currentQuestion.correctOptionsIndex) viewModel.incrementScore()
-                    viewModel.nextQuestion()
-
-                    if (viewModel.currentQuestionIndex >= viewModel.questions.size) onFinish()
-                }
+                onClick = { onAnswerSelected(index) }
             )
             Spacer(modifier = Modifier.height(12.dp))
         }
