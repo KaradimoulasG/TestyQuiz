@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,15 +26,16 @@ fun QuestionScreen(viewModel: QuizViewModel, onAnswerSelected: (Int) -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        StylishText(text = currentQuestion.questionTitle)
+        Text(text = currentQuestion.questionTitle)
         Spacer(modifier = Modifier.height(16.dp))
 
         currentQuestion.options.forEachIndexed { index, option ->
-            StylishButton(
-                text = option,
+            Button(
                 onClick = { onAnswerSelected(index) }
-            )
-            Spacer(modifier = Modifier.height(12.dp))
+            ) {
+                Text(text = option)
+                Spacer(modifier = Modifier.height(12.dp))
+            }
         }
     }
 }
@@ -40,7 +43,5 @@ fun QuestionScreen(viewModel: QuizViewModel, onAnswerSelected: (Int) -> Unit) {
 @Preview(showBackground = true)
 @Composable
 private fun QuestionScreenPreview() {
-    BaseScreen {
-        QuestionScreen(QuizViewModel()) { }
-    }
+    QuestionScreen(QuizViewModel()) { }
 }

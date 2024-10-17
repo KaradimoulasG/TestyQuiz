@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.testyquiz.ui.theme.BasicTheme
 import com.example.testyquiz.ui.theme.TestyQuizTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         enableEdgeToEdge()
         setContent {
-            TestyQuizTheme {
+            BasicTheme {
                 TriviaApp()
             }
         }
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 private fun AppPreview() {
-    TestyQuizTheme {
+    BasicTheme {
         TriviaApp()
     }
 }
@@ -35,7 +36,7 @@ private fun AppPreview() {
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun AppPreviewNight() {
-    TestyQuizTheme {
+    BasicTheme {
         TriviaApp()
     }
 }
