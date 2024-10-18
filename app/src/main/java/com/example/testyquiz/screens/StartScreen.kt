@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,10 +30,34 @@ fun StartScreen(onStartClick: () -> Unit) {
     }
 }
 
+@Composable
+fun StartBasicScreen(onStartClick: () -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "Welcome to the QuizApp")
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = { onStartClick() }
+        ) {
+            Text("Start Quiz")
+        }
+    }
+}
+
+
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun PreviewStartScreen() {
     BaseScreen {
         StartScreen {}
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBasicStartScreen() {
+    StartBasicScreen {  }
 }
