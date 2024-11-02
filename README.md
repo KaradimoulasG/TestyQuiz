@@ -12,3 +12,4 @@ Aν θέλετε να αλλάξετε το χρώμα, μπορείτε να π
 To BaseScreen κάνει ό,τι και το GradientBackground, μπορεί να αφαιρεθεί για να υπάρχει το GradientBackground απευθείας.
 
 Για ερωτήσεις, στείλτε email. Θα χαρώ να βοηθήσω παραπάνω
+karadimoulas@gmail.com
